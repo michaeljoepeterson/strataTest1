@@ -1,0 +1,264 @@
+body,html{
+
+	font-size: 16px;
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	line-height: 1.8em;
+	color: white;
+	background-color: #282e34;
+	height: 100%;
+	
+}
+a{
+	text-decoration: none !important;
+}
+ul a li{
+	color: white;
+}
+
+#brandImage{
+	width: 30px;
+	height: 30px;
+}
+.nav-tabs{
+	border:none;
+	margin-top: 30px;
+	margin-left: 80px;
+}
+
+.page-header{
+
+	color: #fff;
+	padding:20px;
+	margin: 10px;
+	width: 100%;
+	text-align: center;
+	font-size: 27px;
+	letter-spacing: 8px;
+	text-transform: uppercase;
+
+}
+
+.active1{
+	border: 1px solid black;
+	
+}
+
+.carousel-img{
+    margin: auto;
+    /*stretches image vh*/
+   height:80vh;
+   max-width:80%;
+
+}
+.carousel-img:hover{
+	cursor: pointer;
+}
+
+.controlColor{
+
+	color: black;
+}
+.background1{
+	background-color: black;
+	
+	/*padding-top: 60px;*/
+	
+}
+
+.galleryImage{
+
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	transition: 0.3s;
+	cursor: pointer;
+	margin: 0;
+
+}
+
+.galleryImage:hover{
+	/*transition: opacity 1s ease-in-out;*/
+	/*opacity: 0.4;*/
+}
+
+.modal{
+
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	width: 100%
+	height: 100%;
+	overflow: auto;/*will enable scroll*/
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.9);
+
+}
+/*ask jade about close button or not*/
+.modal:hover{
+
+	cursor: pointer;
+}
+.modalContent1{
+	padding-top: 7vh;
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+}
+
+#captionText1{
+
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	text-align: center;
+	color: #ccc;
+	padding: 10px 0;
+	height: 150px;
+
+}
+
+.modalContent1, #captionText{
+
+	-webkit-animation-name: zoom;
+	-webkit-animation-duration: 0.6s;
+	animation-name: zoom;
+	animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom{
+	from{-webkit-transform:scale(0)}
+	to{-webkit-transform:scale(1)}
+}
+
+@keyframes zoom{
+	from{transform: scale(0)}
+	to{transform: scale(1)}
+}
+
+.close{
+	padding-top: 5vh;
+	padding-bottom: 5vh;
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+
+}
+.close:hover, .close:focus{
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+@media (max-width: 1500px){
+
+	.modalContent1{
+		width:100%;
+	}
+	.carousel-img{
+    /*stretches image vh*/   
+    
+    /*stretches image vh*/    
+    /*max-height:40vh;*/
+    
+	}
+
+}
+
+@media (max-width: 1200px){
+
+	.modalContent1{
+		width:100%;
+	}
+	.carousel-img{
+    /*stretches image vh*/   
+    
+    /*stretches image vh*/    
+    /*max-height:40vh;*/
+    
+	}
+}
+
+@media (max-width: 1000px){
+
+	.modalContent1{
+		width:100%;
+	}
+	.carousel-img{
+    /*stretches image vh*/   
+    
+    /*stretches image vh*/    
+    /*max-height:40vh;*/
+    
+	}
+
+}
+
+@media (max-width: 800px){
+
+	.modalContent1{
+		width:100%;
+	}
+	.carousel-img{
+    /*stretches image vh*/   
+    
+    /*stretches image vh*/    
+    /*max-height:40vh;*/
+    
+	}
+
+
+}
+
+@media (max-width: 600px){
+
+	.modalContent1{
+		width:100%;
+	}
+	.carousel-img{
+    /*stretches image vh*/   
+    
+    /*stretches image vh*/    
+    /*max-height:40vh;*/
+    
+	}
+
+}
+
+
+@media (max-width: 568px){
+
+	.modalContent1{
+		width:100%;
+	}
+	.carousel-img{
+    /*stretches image vh*/   
+    
+    /*stretches image vh*/    
+    /*max-height:30vh;*/
+    
+	}
+
+}
+@media (max-width: 450px){
+
+	.modalContent1{
+		width:100%;
+	}
+	.carousel-img{
+    /*stretches image vh*/   
+    
+    /*stretches image vh*/    
+    /*max-height:30vh;*/
+    
+	}
+
+}

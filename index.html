@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <!--need this for new bs, makes dropdown work-->
+    <script type="text/javascript" src="js/popper.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+	<title>Strata Landscape Design</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap4.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<!--dataspy scroll is how we get the scroll update navbar thing-->
+<body  data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#section1"><img id="brandImage" src="images/photo1.jpg"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li id="homeNavItem" class="nav-item">
+        <a class="nav-link" id="homeNav" href="#section1">Home</a>
+      </li>
+      <li id="aboutNavItem" class="nav-item">
+        <a class="nav-link" id="aboutNav" href="#section2">About</a>
+      </li>
+      <li id="contactNavItem" class="nav-item">
+        <a class="nav-link" id="contactNav" href="#section3">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="testGallery.html">Gallery</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+	<div id="section1" class="pimg1">
+		<div class="ptext">
+			<span class="border">
+				Strata Landscape Design
+			</span>
+		</div>
+	</div>
+	<div  id="section2">
+	<section class="section section_light">
+		
+		<h2>About Me</h2>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
+	</section>
+	</div>
+
+	<div class="pimg2">
+		<div class="ptext">
+			<span class="border">
+				Image 2 text
+			</span>
+		</div>
+	</div>
+	<section class="section section_dark">
+		<h2>More Info?</h2>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliqu</p>
+	</section>
+	<div class="pimg3">
+		<div class="ptext">
+			<span class="border">
+				Image 3 text
+			</span>
+		</div>
+	</div>
+	<div  id="section3">
+	<section class="section section_dark">
+		<h2>Contact</h2>
+
+		<form action="contactForm.php" id="messageForm" method="post">
+		<p>	<div class="container-fluid">
+			<div class="row">
+				<div class="col-s-12 col-md-12 col-lg-12">
+					<label for="nameInput">Name:</label>
+					<input class="formInput" id="nameInput" type="text" name="name">
+				</div>
+
+				<div class="col-s-12 col-md-12 col-lg-12">
+					<label id="emailLabel" for="emailInput">Email:</label>
+					<input class="formInput" id="emailInput" type="Email" name="mail">
+				</div>
+				<div class="col-s-12 col-md-12 col-lg-12">
+					<label for="workSelect" id="formList">Type of Work:</label>
+					<select id="workSelect" name="workSelected">
+						<option value="logo">Logo</option>
+						<option value="graphicDesign">Graphic Design</option>
+						<option value="webDesign">Web Design</option>
+						<option value="posters">Posters</option>
+					</select>
+				</div>
+				<div class="col-s-12 col-md-12 col-lg-12">
+				<label for="messageBox">Message:</label><br>
+				<textarea class="formTextArea" name="message"></textarea>
+				</div>
+				<div class="col-s-12 col-md-12 col-lg-12">
+				<button name="">Submit</button>
+				</div>
+			</div>
+			</div>
+		</p>
+	</form>
+	</section>
+	</div>
+	<div class="pimg1">
+		<div class="ptext">
+			<span class="border">
+				Strata Landscape Design
+			</span>
+		</div>
+	</div>
+
+</body>
+</html>
