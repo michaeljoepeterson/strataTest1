@@ -31,15 +31,15 @@ $(document).ready(function() {
 	*/
 	var modalData1 = [
 	{
-		source: "images/photo1.jpg",
+		source: "images/img1.jpg",
 		contentText: "Image 1"
 	},
 	{
-		source: "images/photo2.jpg",
+		source: "images/img2.jpg",
 		contentText: "Image 2"
 	},
 	{
-		source: "images/photo3.jpg",
+		source: "images/img3.jpg",
 		contentText: "Image 3"
 	},
 	{

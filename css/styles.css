@@ -48,7 +48,7 @@ ul a li{
     margin: auto;
     /*stretches image vh*/
    height:80vh;
-   max-width:80%;
+   object-fit: contain;
 
 }
 .carousel-img:hover{
