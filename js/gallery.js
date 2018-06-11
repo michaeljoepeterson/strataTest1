@@ -16,9 +16,9 @@ function closeModal(){
 	});
 }
 
-function generateCarouselString(dataArray,index){
+function generateCarouselString(dataObject,index){
 	const compileString = `<div class="carousel-item">
-      <img class="d-block w-100 carousel-img" src="${dataArray.source}" alt="First ${index}" data-id="${index}">
+      <img class="d-block w-100 carousel-img" src="${dataObject.source}" alt="First ${index}" data-id="${index}">
     </div>`;
     return compileString;
 }
@@ -33,6 +33,42 @@ function renderCarousel(dataArray){
 		}	
 	}
 }
+
+function generateImageListString(dataObject,index){
+	const compileString = `<div class="col-xs-12 col-md-4">
+		 <img src="${dataObject.source}" class="galleryImage" alt="Image ${index}" data-id="${index}">
+	</div>`;
+	return compileString;
+}
+
+function renderImageList(dataArray){
+	for(i = 0; i < dataArray.length; i++){
+		const imageListString = generateImageListString(dataArray[i],i)
+		$(".jsImageList").append(imageListString);
+	}
+}
+
+function picturesClicked(){
+	$("#album1Tab").click(function(){
+		$(".jsNavTabs").each(function(){
+			$(this).find("li").removeClass("active");
+		})
+		event.stopImmediatePropagation();
+		$(this).addClass("active");
+	});
+	//then render new content
+}
+
+function designClicked(){
+	$("#album2Tab").click(function(){
+		$(".jsNavTabs").each(function(){
+			$(this).find("li").removeClass("active");
+		})
+		event.stopImmediatePropagation();
+		$(this).addClass("active");
+	});
+	//then render new content
+}
 	
 function intializePage(){
 	$('.jsImageList').on("click",".galleryImage",(displayModal));
@@ -41,6 +77,10 @@ function intializePage(){
 	//need to write ftns to create the insides of carousel/in grid view
 	//first item in carousel needs active class
 	renderCarousel(modalData1);
+	renderImageList(modalData1);
+	designClicked();
+	picturesClicked();
+	
 }
 
 $(intializePage);
