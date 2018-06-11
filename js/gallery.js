@@ -1,105 +1,86 @@
-$(document).ready(function() {
-	/*
-	var modalData = {images:[
-	{
-		source: "images/photo1.jpg",
-		contentText: "Image 1"
-	},
-	{
-		source: "images/photo2.jpg",
-		contentText: "Image 2"
-	},
-	{
-		source: "images/photo3.jpg",
-		contentText: "Image 3"
-	},
-	{
-		source: "images/design1.jpg",
-		contentText: "design 1"		
-	},
-	{
-		source: "images/design2.jpg",
-		contentText: "design 2"		
-	},
-	{
-		source: "images/design3.jpg",
-		contentText: "design 3"		
-	}
-	
 
-	]};
-	*/
-	var modalData1 = [
-	{
-		source: "images/img1.JPG",
-		contentText: "Image 1"
-	},
-	{
-		source: "images/img2.JPG",
-		contentText: "Image 2"
-	},
-	{
-		source: "images/img3.JPG",
-		contentText: "Image 3"
-	},
-	{
-		source: "images/design1.jpg",
-		contentText: "design 1"		
-	},
-	{
-		source: "images/design2.jpg",
-		contentText: "design 2"		
-	},
-	{
-		source: "images/design3.jpg",
-		contentText: "design 3"		
-	}
-	
+function displayModal(event){
+	event.stopImmediatePropagation();
+	const imageNumber = $(this).attr("data-id");
 
-	];
-	function displayModal(event){
+	$("#myModal").css("display", "block");
+	$("#img01").attr("src", modalData1[imageNumber].source);
+	$("#captionText1").text(modalData1[imageNumber].contentText);
 
-	var imageNumber = $(this).attr("data-id");
+}
 
-	//var modal = document.getElementById('myModal');
-	var modal = $("#myModal")[0];
-	//var img = document.getElementsByClassName('galleryImage')[0];
-
-
-
-	//var modalImg = document.getElementById('img01');
-	let modalImg = $("#img01")[0];
-	//var captionText = document.getElementById('captionText1');
-	//console.log(modalData.images)
-
-	modal.style.display = "block";
-	modalImg.src = modalData1[imageNumber].source;
-	//uncomment to write things about images
-	captionText1.innerHTML = modalData1[imageNumber].contentText;
-	}
-
-
-	//var span = document.getElementsByClassName('close')[0];
-	let span = $(".close")[0];
-	//var modal = document.getElementById('myModal');
-	let modal = $("#myModal")[0];
-	span.onclick = function() { 
-	    modal.style.display = "none";
-	}
-
-
-	$('.galleryImage').click(displayModal);
-	$('.carousel-img').click(displayModal);
-	//cick anywhere to close
-	/*
-	modal.addEventListener('click',function(){
-	this.style.display="none";
-	})
-	*/
-	
+function closeModal(){
 	$("#myModal").click(function(event){
 		$(this).css("display","none");
 		//console.log("clicked");
 	});
+}
 
-});
+function generateCarouselString(dataObject,index){
+	const compileString = `<div class="carousel-item">
+      <img class="d-block w-100 carousel-img" src="${dataObject.source}" alt="First ${index}" data-id="${index}">
+    </div>`;
+    return compileString;
+}
+
+function renderCarousel(dataArray){
+	for (i = 0; i < dataArray.length; i++){
+		const carouselString = generateCarouselString(dataArray[i],i);
+
+		$(".jsCarouselInner").append(carouselString);	
+		if (i === 0){
+			$(".carousel-item").addClass("active");
+		}	
+	}
+}
+
+function generateImageListString(dataObject,index){
+	const compileString = `<div class="col-xs-12 col-md-4">
+		 <img src="${dataObject.source}" class="galleryImage" alt="Image ${index}" data-id="${index}">
+	</div>`;
+	return compileString;
+}
+
+function renderImageList(dataArray){
+	for(i = 0; i < dataArray.length; i++){
+		const imageListString = generateImageListString(dataArray[i],i)
+		$(".jsImageList").append(imageListString);
+	}
+}
+
+function picturesClicked(){
+	$("#album1Tab").click(function(){
+		$(".jsNavTabs").each(function(){
+			$(this).find("li").removeClass("active");
+		})
+		event.stopImmediatePropagation();
+		$(this).addClass("active");
+	});
+	//then render new content
+}
+
+function designClicked(){
+	$("#album2Tab").click(function(){
+		$(".jsNavTabs").each(function(){
+			$(this).find("li").removeClass("active");
+		})
+		event.stopImmediatePropagation();
+		$(this).addClass("active");
+	});
+	//then render new content
+}
+	
+function intializePage(){
+	$('.jsImageList').on("click",".galleryImage",(displayModal));
+	$('.jsCarouselInner').on("click", ".carousel-img",(displayModal));
+	closeModal();
+	//need to write ftns to create the insides of carousel/in grid view
+	//first item in carousel needs active class
+	renderCarousel(modalData1);
+	renderImageList(modalData1);
+	designClicked();
+	picturesClicked();
+	
+}
+
+$(intializePage);
