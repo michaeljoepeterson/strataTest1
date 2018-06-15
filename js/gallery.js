@@ -90,15 +90,6 @@ function designClicked(){
 	//then render new content
 }
 
-function equalizeHeights(){
-	let heights = $(".galleryImage").map(function() {
-        return $(this).height();
-    }).get(),
-
-    maxHeight = Math.max.apply(null, heights);
-    console.log(heights)
-    $(".galleryImage").height(maxHeight);
-}
 
 function intializePage(){
 
@@ -110,8 +101,6 @@ function intializePage(){
 	renderImageList(modalData1);
 	designClicked();
 	picturesClicked();
-	equalizeHeights();
-	
 }
 
 $(intializePage);
