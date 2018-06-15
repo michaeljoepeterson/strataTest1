@@ -2,13 +2,27 @@
 function displayModal(event){
 	event.stopImmediatePropagation();
 	const imageNumber = $(this).attr("data-id");
-
-	$("#myModal").css("display", "block");
-	$("#img01").attr("src", modalData1[imageNumber].source);
-	$("#captionText1").text(modalData1[imageNumber].contentText);
+	//check if picture tab is selected
+	const pictureTab = $("#album1Tab").hasClass("active");
+	//check if design tab clicked
+	const designTab = $("#album2Tab").hasClass("active");
+	if (pictureTab){
+		$("#myModal").css("display", "block");
+		$("#img01").attr("src", modalData1[imageNumber].source);
+		$("#captionText1").text(modalData1[imageNumber].contentText);
+	}
+	else if(designTab){
+		$("#myModal").css("display", "block");
+		$("#img01").attr("src", designData[imageNumber].source);
+		$("#captionText1").text(designData[imageNumber].contentText);
+	}
+	
 
 }
-
+function clearPage(){
+	$(".jsImageList").empty();
+	$(".jsCarouselInner").empty();
+}
 function closeModal(){
 	$("#myModal").click(function(event){
 		$(this).css("display","none");
@@ -55,6 +69,9 @@ function picturesClicked(){
 		})
 		event.stopImmediatePropagation();
 		$(this).addClass("active");
+		clearPage();
+		renderImageList(modalData1);
+		renderCarousel(modalData1);
 	});
 	//then render new content
 }
@@ -66,20 +83,34 @@ function designClicked(){
 		})
 		event.stopImmediatePropagation();
 		$(this).addClass("active");
+		clearPage();
+		renderImageList(designData);
+		renderCarousel(designData);
 	});
 	//then render new content
 }
-	
+
+function equalizeHeights(){
+	let heights = $(".galleryImage").map(function() {
+        return $(this).height();
+    }).get(),
+
+    maxHeight = Math.max.apply(null, heights);
+    console.log(heights)
+    $(".galleryImage").height(maxHeight);
+}
+
 function intializePage(){
+
 	$('.jsImageList').on("click",".galleryImage",(displayModal));
 	$('.jsCarouselInner').on("click", ".carousel-img",(displayModal));
 	closeModal();
-	//need to write ftns to create the insides of carousel/in grid view
-	//first item in carousel needs active class
+	//need a clear function that will empty the carsousel/image list can probably just use $().empty
 	renderCarousel(modalData1);
 	renderImageList(modalData1);
 	designClicked();
 	picturesClicked();
+	equalizeHeights();
 	
 }
 
